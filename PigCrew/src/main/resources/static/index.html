@@ -5,23 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <title>Momentum</title>
+    <link rel="stylesheet" href="css/table.css">
+    <title>PigCrew</title>
 </head>
 <body>
-	<table id="dataTable" border="1">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>author</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- JSON 데이터가 여기에 삽입될 것입니다. -->
-        </tbody>
-    </table>
-    
-    <script src="js/clock.js"></script>
+	<div class="main">
+		<div class="table-data">
+			<table class="custom-table" id="dataTable" border="1">
+		        <thead>
+		            <tr>
+		                <th>Name</th>
+		                <th>Level</th>
+		            </tr>
+		        </thead>
+		        <tbody>
+		            <!-- JSON 데이터가 여기에 삽입될 것입니다. -->
+		        </tbody>
+		    </table>
+		    <div id="pagination">
+    			<!-- 페이징 버튼이 여기에 표시될 것입니다. -->
+			</div>
+	    </div>
+	    <div class="table-data">
+	    	<a class="join-button" href="join.html">모임 입력</a>
+		</div>
+    </div>
     <script src="js/data.js"></script>
 </body>
 </html>

@@ -14,20 +14,20 @@ public class Course {
 	
 	@Column
 	private String name;
-	private String author;
+	private int count;
 	
 	public Course() {}
 	
-	public Course(long id, String name, String author) {
+	public Course(long id, String name, int count) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.author = author;
+		this.count = count;
 	}
 
 	@Override
 	public String toString() {
-		return "Course [id=" + id + ", name=" + name + ", author=" + author + "]";
+		return "Course [id=" + id + ", name=" + name + ", count=" + count + "]";
 	}
 
 	public long getId() {
@@ -38,8 +38,13 @@ public class Course {
 		return name;
 	}
 
-	public String getAuthor() {
-		return author;
+	public int getCount() {
+		return count;
+	}
+
+	public void setCount(int string) {
+		this.count = string;
+		
 	}
 	
 	

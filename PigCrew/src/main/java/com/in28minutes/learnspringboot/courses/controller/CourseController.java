@@ -42,14 +42,27 @@ public class CourseController {
 	
 	//POST - Create a new resource
 	@PostMapping("/courses")
-	public void createCourse(@RequestBody Course course) {
-		repository.save(course);
+	public void createCourse(@RequestBody List<Course> course) {
+		for (Course courses : course) {
+	        Course existingCourse = repository.findByName(courses.getName());
+	        if (existingCourse != null) {
+	            existingCourse.setCount(existingCourse.getCount() + 1);
+	            repository.save(existingCourse);
+	        } else {
+	            courses.setCount(1);
+	            repository.save(courses);
+	        }
+	    }
 	}
 	
 	//PUT - Update/Replace a resource
 	@PutMapping("/courses/{id}")
 	public void updateCourse(@PathVariable long id, @RequestBody Course course) {
-		repository.save(course);
+		Course existingCourse = repository.findById(id).orElse(null);
+	    if (existingCourse != null) {
+	        existingCourse.setCount(existingCourse.getCount() + 1);
+	        repository.save(existingCourse);
+	    }
 	}
 	
 	//DELETE - Delete a resource
